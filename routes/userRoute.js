@@ -17,13 +17,17 @@ router.post("/create", async (req, res) => {
     const { firstname, lastname, email, phone } = req.body;
     const newUser = { firstname, lastname, email, phone };
 
+    console.log({ newUser });
+
     const result = await userCollection.insertOne(newUser);
 
-    if (result.acknowledged) {
-      res.status(201).json({ message: "User created successfully" });
-    } else {
-      res.status(500).json({ message: "Failed to create user" });
-    }
+    res.send(result);
+    // if (result.acknowledged) {
+    //   res.status(201).json({ message: "User created successfully" });
+    // }
+    //  else {
+    //   res.status(500).json({ message: "Failed to create user" });
+    // }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

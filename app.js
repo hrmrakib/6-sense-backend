@@ -1,3 +1,4 @@
+import userRoute from "./routes/userRoute.js";
 import express from "express";
 import cors from "cors";
 
@@ -12,6 +13,9 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
+
+// Routes
+app.use("/api", userRoute);
 
 // Root route
 app.get("/", (req, res) => {
