@@ -1,8 +1,12 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
+import dotenv from "dotenv";
 
-const uri = "mongodb://localhost:27017";
+dotenv.config();
 
-// const uri = `mongodb+srv://gadget-plus:wskOg8LMuMwVZm5P@cluster0.dmwxvyo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const db_username = process.env.DB_USER;
+const db_password = process.env.DB_PASSWORD;
+
+const uri = `mongodb+srv://${db_username}:${db_password}@cluster0.dmwxvyo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 export const client = new MongoClient(uri, {
   serverApi: {

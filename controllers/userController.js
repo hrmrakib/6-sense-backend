@@ -90,36 +90,3 @@ export const userStatus = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-// export const userStatus = async (req, res) => {
-//   const { email } = req.params;
-//   const user = await userCollection.findOne({ email });
-
-//   try {
-//     if (user.block) {
-//       const res = await userCollection.updateOne(
-//         { email },
-//         {
-//           $set: {
-//             block: false,
-//           },
-//         }
-//       );
-//       res.send(res);
-//       return;
-//     } else {
-//       const res = await userCollection.updateOne(
-//         { email },
-//         {
-//           $set: {
-//             block: true,
-//           },
-//         }
-//       );
-//       res.send(res);
-//       return;
-//     }
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
